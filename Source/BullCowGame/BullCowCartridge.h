@@ -23,6 +23,8 @@ class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 
 	bool IsIsogram(FString Word) const;
 
+	TArray<FString> GetValidWords(TArray<FString> WordList) const;
+
 	// Your declarations go below!
 	private:
 		FString HiddenWord;

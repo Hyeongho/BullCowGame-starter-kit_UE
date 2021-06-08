@@ -10,7 +10,7 @@ const TArray<FString> Words =
 	TEXT("water"),
 	TEXT("plums"),
 	TEXT("kings"),
-	TEXT("knife") 
+	TEXT("knife")
 };
 
 class BULLCOWGAME_API HiddenWordList

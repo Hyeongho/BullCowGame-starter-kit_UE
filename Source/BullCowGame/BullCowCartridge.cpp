@@ -6,7 +6,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
 
-	GetValidWords(Words);
+	//GetValidWords(Words);
 
 	SetupGame();
 
@@ -43,7 +43,7 @@ void UBullCowCartridge::SetupGame()
 {
 	PrintLine(TEXT("Welcome to Bull Cows!"));
 
-	HiddenWord = TEXT("cakes");
+	HiddenWord = GetValidWords(Words)[FMath::RandRange(0, GetValidWords(Words).Num() - 1)];
 	Lives = 4;
 
 	bGameOver = false;
@@ -68,7 +68,7 @@ void UBullCowCartridge::EndGame()
 	PrintLine(TEXT("\nPress enter to play agian"));
 }
 
-void UBullCowCartridge::ProcessGuess(FString Guess)
+void UBullCowCartridge::ProcessGuess(const FString& Guess)
 {
 	if (Guess == HiddenWord)
 	{
@@ -111,7 +111,7 @@ void UBullCowCartridge::ProcessGuess(FString Guess)
 	PrintLine(TEXT("Guess again, you hove %d lives left"), Lives);
 }
 
-bool UBullCowCartridge::IsIsogram(FString Word) const
+bool UBullCowCartridge::IsIsogram(const FString& Word) const
 {
 	/*int i = 0;
 	int Comparison = i + 1;*/
@@ -130,7 +130,7 @@ bool UBullCowCartridge::IsIsogram(FString Word) const
 	return true;
 }
 
-TArray<FString> UBullCowCartridge::GetValidWords(TArray<FString> WordList) const
+TArray<FString> UBullCowCartridge::GetValidWords(const TArray<FString>& WordList) const
 {
 	TArray<FString> ValidWords;
 
